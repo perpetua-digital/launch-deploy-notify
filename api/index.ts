@@ -18,7 +18,7 @@ const webhookSchema = z.object({
 const app = express();
 app.use(express.json());
 
-app.post('/webhook', (req: Request, res: Response) => {
+app.post('/publish', (req: Request, res: Response) => {
   // Validate the incoming request
   const parsedResult = webhookSchema.safeParse(req.body);
 

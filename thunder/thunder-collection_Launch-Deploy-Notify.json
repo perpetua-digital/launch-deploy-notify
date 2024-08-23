@@ -1,0 +1,57 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Launch-Deploy-Notify",
+    "collectionId": "81d12cd7-05f5-4790-8292-3128d4583d6b",
+    "dateExported": "2024-08-23T18:49:00.664Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "7745b807-394f-4357-b66c-231f6dda2d8b",
+            "colId": "81d12cd7-05f5-4790-8292-3128d4583d6b",
+            "containerId": "",
+            "name": "ok",
+            "url": "/ok",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-08-23T18:44:59.955Z",
+            "modified": "2024-08-23T18:45:10.585Z",
+            "headers": []
+        },
+        {
+            "_id": "8c6c955f-e5e0-431d-b459-eb03f9a9a5bd",
+            "colId": "81d12cd7-05f5-4790-8292-3128d4583d6b",
+            "containerId": "",
+            "name": "index",
+            "url": "/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-23T18:45:21.782Z",
+            "modified": "2024-08-23T18:45:26.613Z",
+            "headers": []
+        },
+        {
+            "_id": "c023d867-c433-47e3-b067-13bbcc78a92c",
+            "colId": "81d12cd7-05f5-4790-8292-3128d4583d6b",
+            "containerId": "",
+            "name": "publish-no-action",
+            "url": "/publish",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-08-23T18:46:35.378Z",
+            "modified": "2024-08-23T18:48:15.179Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"environment\": \"production\",\n  \"name\": \"my production library\",\n  \"status\": \"pending\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "http://localhost:3000"
+        }
+    },
+    "ref": "RJETdmWHChPXyifWSmsSp6Kksd9kfldZe4K_cgse_xL9VMZySN362Gy-LDaHXDu_Vnw1kf5fK-GMlPv_pGq8og"
+}
