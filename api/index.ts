@@ -3,6 +3,7 @@ import { z } from 'zod';
 import sgMail from '@sendgrid/mail';
 import * as dotenv from 'dotenv';
 // import { auth } from '@adobe/auth-token';
+import adobeRoutes from './routes/adobe'
 
 // Load environment variables from .env file
 dotenv.config();
@@ -24,7 +25,7 @@ app.post('/publish', (req: Request, res: Response) => {
   const parsedResult = webhookSchema.safeParse(req.body);
 
   if (!parsedResult.success) {
-    res.status(400).send('Invalid request payload');
+    res.status(400).send(`Invalid request payload ${JSON.stringify(req.body)}`);
     return;
   }
 
@@ -34,14 +35,14 @@ app.post('/publish', (req: Request, res: Response) => {
   if (environment === 'production' && status === 'published') {
     sendEmailNotification(name)
       .then(() => {
-        res.status(200).send('Notification sent');
+        res.status(200).send(`Notification sent`);
       })
       .catch((error) => {
         console.error('Error sending email:', JSON.stringify(error));
         res.status(500).send('Error sending notification');
       });
   } else {
-    res.status(200).send('No action needed');
+    res.status(200).send(`No action needed \n ${JSON.stringify(req.body)}`);
   }
 });
 
@@ -52,6 +53,8 @@ app.get('/ok', (req: Request, res: Response) => {
 app.get('/', (req: Request, res: Response) => {
     res.status(200).send('hello world');
 });
+
+app.use('/adobe', adobeRoutes)
 
 async function sendEmailNotification(libraryName: string) {
   const msg = {
@@ -64,7 +67,7 @@ async function sendEmailNotification(libraryName: string) {
   await sgMail.send(msg);
 }
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Webhook listener running on port ${PORT}`);
 });
