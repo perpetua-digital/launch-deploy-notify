@@ -42,3 +42,4 @@ coverage/
 
 # Optional: OS-specific files
 *.swp
+.vercel

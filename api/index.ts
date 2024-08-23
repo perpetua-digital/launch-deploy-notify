@@ -48,6 +48,10 @@ app.get('/ok', (req: Request, res: Response) => {
     res.status(200).send('Everything is ok');
 });
 
+app.get('/', (req: Request, res: Response) => {
+    res.status(200).send('hello world');
+});
+
 async function sendEmailNotification(libraryName: string) {
   const msg = {
     to: 'john@perpetua.digital', // this will be passed in somehow?
