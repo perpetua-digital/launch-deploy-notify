@@ -45,7 +45,7 @@ app.post('/webhook', (req: Request, res: Response) => {
 });
 
 app.get('/ok', (req: Request, res: Response) => {
-    res.status(200).send('OK');
+    res.status(200).send('Everything is ok');
 });
 
 async function sendEmailNotification(libraryName: string) {
@@ -63,3 +63,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Webhook listener running on port ${PORT}`);
 });
+
+module.exports = app;
