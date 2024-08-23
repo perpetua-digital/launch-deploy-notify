@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import { z } from 'zod';
 import sgMail from '@sendgrid/mail';
 import * as dotenv from 'dotenv';
+// import { auth } from '@adobe/auth-token';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -55,7 +56,7 @@ app.get('/', (req: Request, res: Response) => {
 async function sendEmailNotification(libraryName: string) {
   const msg = {
     to: 'john@perpetua.digital', // this will be passed in somehow?
-    from: 'launchnotify@perpetua.digital', // Change to your verified sender
+    from: 'john@perpetua.digital', // Change to your verified sender
     subject: 'Library Published',
     text: `The library "${libraryName}" has been published in the production environment.`,
   };
